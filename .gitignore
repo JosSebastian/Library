@@ -5,6 +5,7 @@
 .nitro
 .cache
 dist
+target
 
 # Dependencies
 node_modules
