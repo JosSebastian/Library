@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   srcDir: "source",
   imports: { dirs: ["stores"] },
 
-  modules: ["@pinia/nuxt", "@nuxt/ui"],
+  modules: ["@pinia/nuxt", "@nuxt/ui", "@nuxt/eslint"],
 
   devtools: {
     enabled: true,
