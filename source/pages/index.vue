@@ -14,6 +14,8 @@
       <HomeSectionOne />
       <UDivider />
       <HomeSectionTwo />
+      <UDivider />
+      <HomeSectionThree />
     </main>
 
     <UDivider />
