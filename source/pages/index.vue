@@ -12,6 +12,8 @@
     <!-- Body -->
     <main class="w-full h-full m-0 px-3 py-0 grow flex flex-col gap-6">
       <HomeSectionOne />
+      <UDivider />
+      <HomeSectionTwo />
     </main>
 
     <UDivider />
