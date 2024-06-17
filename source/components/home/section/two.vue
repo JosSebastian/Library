@@ -18,9 +18,8 @@
       <div
         class="w-full h-fit flex flex-col md:flex-row justify-center gap-6 text-center"
       >
-        <div
-          class="w-full max-w-full md:max-w-80 h-full flex flex-col items-center gap-6"
-        >
+        <!-- Left -->
+        <div class="w-full md:max-w-80 h-full flex flex-col items-center gap-6">
           <UCard>
             <img src="https://placehold.co/300" />
           </UCard>
@@ -31,9 +30,8 @@
           </p>
         </div>
 
-        <div
-          class="w-full max-w-full md:max-w-80 h-full flex flex-col items-center gap-6"
-        >
+        <!-- Middle -->
+        <div class="w-full md:max-w-80 h-full flex flex-col items-center gap-6">
           <UCard>
             <img src="https://placehold.co/300" />
           </UCard>
@@ -44,9 +42,8 @@
           </p>
         </div>
 
-        <div
-          class="w-full max-w-full md:max-w-80 h-full flex flex-col items-center gap-6"
-        >
+        <!-- Right -->
+        <div class="w-full md:max-w-80 h-full flex flex-col items-center gap-6">
           <UCard>
             <img src="https://placehold.co/300" />
           </UCard>

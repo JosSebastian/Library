@@ -10,7 +10,7 @@
     <UDivider />
 
     <!-- Body -->
-    <main class="w-full h-full m-0 px-3 py-0 grow flex flex-col gap-6">
+    <main class="w-full h-full m-0 p-3 grow flex flex-col gap-6">
       <HomeSectionOne />
       <UDivider />
       <HomeSectionTwo />

@@ -18,9 +18,7 @@
       <div
         class="w-full h-fit flex flex-col md:flex-row justify-center items-center gap-6 text-center"
       >
-        <div
-          class="w-full max-w-full md:max-w-96 h-fit flex justify-center items-center"
-        >
+        <div class="w-full md:max-w-96 h-fit flex justify-center items-center">
           <UCard>
             <img
               src="https://placehold.co/300x450"
@@ -33,6 +31,7 @@
         <div
           class="w-full md:max-w-96 flex flex-col gap-3 text-center md:text-start"
         >
+          <!-- Left -->
           <div class="flex flex-col gap-3">
             <p class="text-3xl font-bold">Montes semper quam</p>
             <p class="text-lg">
@@ -43,6 +42,7 @@
 
           <UDivider />
 
+          <!-- Middle -->
           <div class="flex flex-col gap-3">
             <p class="text-3xl font-bold">Suscipit sit purus</p>
             <p class="text-lg">
@@ -54,6 +54,7 @@
 
           <UDivider />
 
+          <!-- Right -->
           <div class="flex flex-col gap-3">
             <p class="text-3xl font-bold">Gravida donec eget</p>
             <p class="text-lg">
