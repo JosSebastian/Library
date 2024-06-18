@@ -15,6 +15,7 @@
     "format": "npx prettier . --write"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.43.5",
     "@tauri-apps/api": "^1.5.6",
     "nuxt": "^3.11.2",
     "pinia": "^2.1.7",
