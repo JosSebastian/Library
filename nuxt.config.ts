@@ -6,6 +6,12 @@ export default defineNuxtConfig({
   imports: { dirs: ["stores"] },
 
   modules: ["@pinia/nuxt", "@nuxt/ui", "@nuxt/eslint"],
+  runtimeConfig: {
+    public: {
+      DatabaseLCK: process.env.DATABASE_LCK,
+      DatabaseKEY: process.env.DATABASE_KEY,
+    },
+  },
 
   devtools: {
     enabled: true,
