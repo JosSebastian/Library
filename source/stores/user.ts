@@ -1,8 +1,8 @@
 import type { User } from "@supabase/supabase-js";
 
 export const useUserStore = defineStore("user", () => {
-  const clientStore = useClientStore();
-  const client = clientStore.client;
+  const clientstore = useClientStore();
+  const client = clientstore.client;
 
   const user = useState<User | undefined>();
   const getUser = async () => {
@@ -19,11 +19,13 @@ export const useUserStore = defineStore("user", () => {
     name: { first: string; last: string };
     email: string;
     password: string;
+    error: string | null;
   }>(() => {
     return {
       name: { first: "", last: "" },
       email: "",
       password: "",
+      error: null,
     };
   });
   const getCreadentials = () => {
@@ -31,6 +33,7 @@ export const useUserStore = defineStore("user", () => {
       name: { first: "", last: "" },
       email: "",
       password: "",
+      error: null,
     };
   };
   getCreadentials();
@@ -47,6 +50,8 @@ export const useUserStore = defineStore("user", () => {
         },
       });
       if (error) {
+        creadentials.value.password = "";
+        creadentials.value.error = error.message;
         throw error;
       }
       user.value = data?.user ?? undefined;
@@ -54,7 +59,6 @@ export const useUserStore = defineStore("user", () => {
       return user.value;
     } catch (error) {
       console.error(error);
-      creadentials.value.password = "";
     }
   };
   const signIn = async () => {
@@ -64,6 +68,8 @@ export const useUserStore = defineStore("user", () => {
         password: creadentials.value.password,
       });
       if (error) {
+        creadentials.value.password = "";
+        creadentials.value.error = error.message;
         throw error;
       }
       user.value = data?.user ?? undefined;
@@ -71,7 +77,6 @@ export const useUserStore = defineStore("user", () => {
       return user.value;
     } catch (error) {
       console.error(error);
-      creadentials.value.password = "";
     }
   };
   const signOut = async () => {
