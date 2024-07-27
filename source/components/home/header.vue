@@ -28,14 +28,17 @@ const open = ref<boolean>(false);
         <div
           class="w-full h-fit m-0 px-3 py-0 grow flex flex-col justify-start items-center"
         >
-          <div class="text-xl font-medium">
+          <div class="flex flex-col items-center text-xl font-medium">
+            <div v-if="userstore.user">
+              <ULink to="/app" @click="open = false"> App </ULink>
+            </div>
+
             <div v-if="userstore.user">
               <ULink to="/authentication?sign=out" @click="open = false">
                 Sign Out
               </ULink>
             </div>
-
-            <div v-if="!userstore.user" class="flex gap-3">
+            <div v-else-if="!userstore.user" class="flex gap-3">
               <ULink to="/authentication?sign=up" @click="open = false">
                 Sign Up
               </ULink>
