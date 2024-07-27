@@ -68,8 +68,7 @@ export const useEntriesStore = defineStore("entries", () => {
     if (error) {
       throw error;
     }
-    const value = (data as Entry[]).at(0);
-    return value;
+    return (data as Entry[]).at(0);
   };
 
   const updateEntry = async (entry: Entry) => {
@@ -88,8 +87,7 @@ export const useEntriesStore = defineStore("entries", () => {
     if (error) {
       throw error;
     }
-    const value = (data as Entry[]).at(0);
-    return value;
+    return (data as Entry[]).at(0);
   };
 
   const deleteEntry = async (entry: Entry) => {

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useEntriesStore, type Entry } from "~/stores/entry/entry";
+import { useGenresStore, type Genre } from "~/stores/entry/genre";
 
 const open = defineModel<boolean>("open");
 const action = defineModel<"Create" | "Update" | "Delete">("action");
@@ -12,12 +13,18 @@ watch([open, action], () => {
 const toast = useToast();
 
 const entriesstore = useEntriesStore();
-const entries = computed(() => entriesstore.entries);
+const genresstore = useGenresStore();
 
 const entry = ref<Entry>(entriesstore.defaultEntry());
+const genre = ref<Genre[]>([]);
 
 const selection = ref<Entry>(entriesstore.defaultEntry());
-watch(selection, () => {
+watch(selection, async () => {
+  if (selection.value.entry_id != undefined) {
+    const selection_genre = await genresstore.getGenreEntries(selection.value);
+    if (selection_genre != undefined) genre.value = selection_genre;
+  }
+
   entry.value.entry_id = selection.value.entry_id;
   entry.value.user_id = selection.value.user_id;
   entry.value.entry_name = selection.value.entry_name;
@@ -30,14 +37,18 @@ const handleCancel = () => {
   open.value = false;
 };
 const handleConfirm = async () => {
-  let value: Entry | undefined = undefined;
+  let value: Entry | Genre[] | undefined = undefined;
 
   switch (action.value) {
     case "Create":
       value = await entriesstore.createEntry(entry.value);
+      if (value != undefined)
+        value = await genresstore.createGenresEntries(genre.value, value);
       break;
     case "Update":
       value = await entriesstore.updateEntry(entry.value);
+      if (value != undefined)
+        value = await genresstore.updateGenresEntries(genre.value, value);
       break;
     case "Delete":
       value = await entriesstore.deleteEntry(entry.value);
@@ -60,7 +71,6 @@ const handleConfirm = async () => {
       <USelectMenu
         v-if="action != 'Create'"
         v-model="selection"
-        :options="entries"
         option-attribute="entry_name"
         by="entry_id"
         placeholder="Entry..."
@@ -75,9 +85,33 @@ const handleConfirm = async () => {
       />
       <UTextarea
         v-model="entry.entry_description"
-        placeholder="Entry Name..."
+        placeholder="Entry Description..."
         :disabled="action === 'Delete'"
       />
+
+      <USelectMenu
+        v-model="genre"
+        option-attribute="genre_name"
+        by="genre_id"
+        placeholder="Genre..."
+        multiple
+        :searchable="genresstore.searchGenres"
+        :debounce="150"
+        clear-search-on-close
+        :disabled="action === 'Delete'"
+      >
+        <template #label>
+          <span v-if="genre.length" class="truncate">
+            {{
+              genre
+                .map((genre) => genre.genre_name)
+                .sort()
+                .join(", ")
+            }}
+          </span>
+          <span v-else>Genre...</span>
+        </template>
+      </USelectMenu>
     </div>
 
     <div class="w-full h-fit flex gap-3 justify-center">

@@ -12,7 +12,6 @@ watch([open, action], () => {
 const toast = useToast();
 
 const genresstore = useGenresStore();
-const genres = computed(() => genresstore.genres);
 
 const genre = ref<Genre>(genresstore.defaultGenre());
 
@@ -57,7 +56,6 @@ const handleConfirm = async () => {
       <USelectMenu
         v-if="action != 'Create'"
         v-model="selection"
-        :options="genres"
         option-attribute="genre_name"
         by="genre_id"
         placeholder="Genre..."
