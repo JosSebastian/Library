@@ -43,6 +43,12 @@ const action = defineModel<"Create" | "Update" | "Delete">("action");
             v-model:open="open"
             v-model:action="action"
           />
+
+          <EntryPropertyGenre
+            v-if="property === 'genre'"
+            v-model:open="open"
+            v-model:action="action"
+          />
         </div>
       </UCard>
     </UModal>
