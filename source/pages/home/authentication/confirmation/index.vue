@@ -23,7 +23,7 @@
           </p>
           <div class="flex flex-col gap-1.5 justify-center items-center">
             <p>Please Check Your Inbox to Confirm Your Account.</p>
-            <ULink to="/authentication?sign=in">
+            <ULink to="/home/authentication?sign=in">
               <UButton class="w-fit h-fit" size="lg">Sign In</UButton>
             </ULink>
           </div>

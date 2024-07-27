@@ -53,7 +53,7 @@ const handleConfirm = async () => {
     case "up":
       user = await userstore.signUp();
       if (user) {
-        router.push({ path: "/authentication/confirmation" });
+        router.push({ path: "/home/authentication/confirmation" });
       }
       break;
     case "in":
