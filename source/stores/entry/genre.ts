@@ -102,7 +102,7 @@ export const useGenresStore = defineStore("genres", () => {
         `
         genre_id,
         genres (*)
-        `
+        `,
       )
       .eq("entry_id", entry.entry_id);
     if (error) {
@@ -123,7 +123,7 @@ export const useGenresStore = defineStore("genres", () => {
             entry_id: entry.entry_id,
             user_id: user.value?.id,
           };
-        })
+        }),
       )
       .select();
     if (error) {
