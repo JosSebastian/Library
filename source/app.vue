@@ -6,4 +6,6 @@ import "~/assets/css/main.css";
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+
+  <UNotifications />
 </template>
