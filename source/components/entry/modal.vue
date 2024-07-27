@@ -37,6 +37,12 @@ const action = defineModel<"Create" | "Update" | "Delete">("action");
               />
             </div>
           </div>
+
+          <EntryPropertyEntry
+            v-if="property === 'entry'"
+            v-model:open="open"
+            v-model:action="action"
+          />
         </div>
       </UCard>
     </UModal>
