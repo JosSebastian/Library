@@ -1,4 +1,4 @@
-import type { User } from "@supabase/supabase-js";
+import { type User } from "@supabase/supabase-js";
 
 export const useUserStore = defineStore("user", () => {
   const clientstore = useClientStore();
