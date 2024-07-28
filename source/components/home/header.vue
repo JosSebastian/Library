@@ -34,16 +34,16 @@ const open = ref<boolean>(false);
             </div>
 
             <div v-if="userstore.user">
-              <ULink to="/authentication?sign=out" @click="open = false">
+              <ULink to="/home/authentication?sign=out" @click="open = false">
                 Sign Out
               </ULink>
             </div>
             <div v-else-if="!userstore.user" class="flex gap-3">
-              <ULink to="/authentication?sign=up" @click="open = false">
+              <ULink to="/home/authentication?sign=up" @click="open = false">
                 Sign Up
               </ULink>
               <span>/</span>
-              <ULink to="/authentication?sign=in" @click="open = false">
+              <ULink to="/home/authentication?sign=in" @click="open = false">
                 Sign In
               </ULink>
             </div>
